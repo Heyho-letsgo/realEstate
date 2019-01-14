@@ -1,6 +1,8 @@
 class SellerController < ApplicationController
 
    def list
+   @sellers = Seller.all
+   
    end
    
    def show
