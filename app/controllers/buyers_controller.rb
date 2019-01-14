@@ -1,10 +1,10 @@
-class SellerController < ApplicationController
+class BuyersController < ApplicationController
 
-   def list
-   @sellers = Seller.all
-   
-   end
-   
+    def index
+           @buyers = Buyer.all
+    end      
+       
+
    def show
    end
    
@@ -26,3 +26,4 @@ class SellerController < ApplicationController
 
 
 end
+
