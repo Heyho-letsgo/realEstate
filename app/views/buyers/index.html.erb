@@ -2,7 +2,12 @@
 
 
 
-
+<% # On affiche les buyers %>
 <% for buyer in @buyers %>
 <p><%=  buyer.room %></p>
+<% end %>
+
+<%= form_tag(buyers_path, method: :get) do %>
+  <%= text_field_tag :room, params[:room] %>
+  <%= submit_tag 'Search', name: nil %>
 <% end %>

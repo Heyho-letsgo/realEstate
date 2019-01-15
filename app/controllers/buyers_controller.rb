@@ -1,13 +1,13 @@
 class BuyersController < ApplicationController
 
     def index
-           @buyers = Buyer.all
+        @buyers = Buyer.search(params[:room])
     end      
        
 
    def show
        @buyer = Buyer.find(params[:id])
-       @room = @buyer.room
+       
        
    end
    
@@ -25,6 +25,12 @@ class BuyersController < ApplicationController
    
    def delete
    end
+
+
+
+def buyer_params
+  params.require(:buyer).permit(:room)
+end
 
 
 
