@@ -6,6 +6,9 @@ class BuyersController < ApplicationController
        
 
    def show
+       @buyer = Buyer.find(params[:id])
+       @room = @buyer.room
+       
    end
    
    def new

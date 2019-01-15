@@ -7,6 +7,7 @@ class SellersController < ApplicationController
    end
    
    def show
+      @seller = Seller.find(params[:id])
    end
    
    def new
@@ -24,6 +25,8 @@ class SellersController < ApplicationController
    def delete
    end
 
-
+   def search
+      
+   end
 
 end
