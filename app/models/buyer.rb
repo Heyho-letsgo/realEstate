@@ -1,13 +1,11 @@
 class Buyer < ActiveRecord::Base
 
-def self.search(room)
-  if room
-    where('room LIKE ?', "%#{room}%")
-  else
-    "/buyers"
+  def self.search(search_room,search_bedroom)
+    
+      where("room LIKE ? and bedroom LIKE ?", "%#{search_room}%", "%#{search_bedroom}%")
+    
+    
+    
   end
-end
-
-
 
 end

@@ -4,10 +4,11 @@
 
 <% # On affiche les buyers %>
 <% for buyer in @buyers %>
-<p><%=  buyer.room %></p>
+<p><%= buyer.room %> <%= buyer.bedroom %></p>
 <% end %>
 
 <%= form_tag(buyers_path, method: :get) do %>
   <%= text_field_tag :room, params[:room] %>
+  <%= text_field_tag :bedroom, params[:bedroom] %>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
