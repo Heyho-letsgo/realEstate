@@ -1,14 +1,16 @@
 <h2>Buyers</h2>
 
+<%= link_to "Créer", new_buyer_path  %>
 
+
+<% # Module de recherche des buyer %>
+<%= form_tag(buyers_path, method: :get) do %>
+  <%= text_field_tag :room, params[:room]%>
+  <%= text_field_tag :bedroom, params[:bedroom]%>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
 
 <% # On affiche les buyers %>
 <% for buyer in @buyers %>
 <p><%= buyer.room %> <%= buyer.bedroom %></p>
-<% end %>
-
-<%= form_tag(buyers_path, method: :get) do %>
-  <%= text_field_tag :room, params[:room] %>
-  <%= text_field_tag :bedroom, params[:bedroom] %>
-  <%= submit_tag 'Search', name: nil %>
 <% end %>
