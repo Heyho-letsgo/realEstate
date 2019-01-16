@@ -21,10 +21,10 @@ class BuyersController < ApplicationController
     end
  
     def create
-       @buyer = Buyer.new(params[:room, :bedroom])
+       @buyer = Buyer.new(buyer_params)
        
        @buyer.save
-       redirect _to "/buyers"
+       redirect_to "/buyers"
     end
    
     def edit
@@ -37,12 +37,15 @@ class BuyersController < ApplicationController
     end
 
 
+
 private
-def buyer_params
-  params.require(:buyer).permit(:room, :bedroom)
-end
-
-
+    def buyer_params
+     params.permit(
+    :room,
+    :bedroom
+  )
+    end
+    
 
 end
 
