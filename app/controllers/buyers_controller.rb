@@ -33,9 +33,17 @@ class BuyersController < ApplicationController
    
     def edit
         @buyer = Buyer.find(params[:id])
+        
     end
    
     def update
+        @buyer = Buyer.find(params[:id])
+        if @buyer.update_attributes(buyer_params)
+            redirect_to @buyer
+        else
+            render 'edit'
+        end
+        
     end
    
     def delete

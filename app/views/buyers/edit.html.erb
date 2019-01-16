@@ -1,6 +1,6 @@
 <h2>Edit : <%= @buyer.id  %></h2>
 
-<%= form_tag buyer_path(@buyer), :method => :put do %>
+<%= form_tag buyer_path(@buyer), :method => :patch do %>
 <%= text_field_tag :room, @buyer.room %>
 <%= submit_tag 'Save Changes' %>
 
