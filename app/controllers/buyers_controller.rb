@@ -40,10 +40,14 @@ class BuyersController < ApplicationController
         @buyer = Buyer.find(params[:id])
         if @buyer.update_attributes(buyer_params)
             
-            redirect_to @buyer
             flash[:success] = "Buyer updated whith succes !"
+            redirect_to @buyer
+            
         else
+            flash[:error] = "Buyer NOT updated whith succes !"
             render 'edit'
+                
+           
         end
         
     end

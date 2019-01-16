@@ -3,6 +3,9 @@
 <%= form_tag buyer_path(@buyer), :method => :patch do %>
 
 <%= text_field_tag :room, @buyer.room%>
+
+<%= @buyer.errors[:room].present? ? ">0" : "" %>
+
 Bedroom
 <%= text_field_tag :bedroom, @buyer.bedroom %>
 <%= submit_tag 'Save Changes' %>
