@@ -32,6 +32,7 @@ class BuyersController < ApplicationController
     end
    
     def edit
+        @buyer = Buyer.find(params[:id])
     end
    
     def update
