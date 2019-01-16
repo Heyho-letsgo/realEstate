@@ -1,7 +1,10 @@
 <h2>Edit : <%= @buyer.id  %></h2>
 
 <%= form_tag buyer_path(@buyer), :method => :patch do %>
-<%= text_field_tag :room, @buyer.room %>
+
+<%= text_field_tag :room, @buyer.room%>
+Bedroom
+<%= text_field_tag :bedroom, @buyer.bedroom %>
 <%= submit_tag 'Save Changes' %>
 
 <% end %>
