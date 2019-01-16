@@ -12,6 +12,26 @@
 <% end %>
 
 <% # On affiche les buyers %>
+
+<table class="table">
+ <tjead>
+  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Room</th>
+      <th scope="col">Bedroom</th>
+  </tr>
+  </thead>
+<tbody>
 <% @buyers.each do |buyer| %>
-<p><%= link_to buyer.id, buyer_path(buyer) %><%= buyer.room %> <%= buyer.bedroom %></p>
+<tr>
+  <th scope>
+    <td><%= link_to buyer.id, buyer_path(buyer) %></td>
+    <td>%= buyer.room %></td>
+    <td><%= buyer.bedroom %></td>
+
+</th>
+</tr>
+</tbody>
+</table>
+
 <% end %>
