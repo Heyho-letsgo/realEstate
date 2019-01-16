@@ -15,16 +15,20 @@ class BuyersController < ApplicationController
 
     def show
        @buyer = Buyer.find(params[:id])
+      # redirect_to @buyer
     end
     
     def new
+        @buyer = Buyer.new
     end
  
     def create
-       @buyer = Buyer.new(buyer_params)
-       
-       @buyer.save
-       redirect_to "/buyers"
+        if @buyer = Buyer.new(buyer_params)
+           @buyer.save
+           redirect_to "/buyers"
+        else
+            render 'create'
+        end
     end
    
     def edit
