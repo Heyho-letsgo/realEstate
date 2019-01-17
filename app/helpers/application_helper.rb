@@ -8,5 +8,11 @@ def flash_class(level)
       when 'alert' then "alert alert-warning"
     end
 end
+
+
+
+
+
+
 end
 

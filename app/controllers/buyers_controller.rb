@@ -1,16 +1,24 @@
 class BuyersController < ApplicationController
+helper_method :sort_column, :sort_direction
 
     def index
+        #@buyers = Buyer.all
         @buyers = Buyer.all
         search_room = params[:room]
         search_bedroom = params[:bedroom]
         
-        @buyers = Buyer.search(search_room, search_bedroom)
+        @buyers = Buyer.search(search_room, search_bedroom).order(room: :desc)
         
-        
-    #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
-    # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
+        #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
+        # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
+    
+    
+    
+    
     end      
+     
+     
+
        
 
     def show
@@ -53,18 +61,22 @@ class BuyersController < ApplicationController
     end
    
     def delete
+        
     end
 
-
+    def order
+        
+        Buyer.order(id: :desc)
+        
+    end
 
 private
+
     def buyer_params
      params.permit(
     :room,
     :bedroom
   )
     end
-    
-
 end
 
