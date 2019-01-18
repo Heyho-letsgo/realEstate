@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'sellers#index'
+  root 'pages#welcome'
+
   resources :sellers
   resources :buyers
   
