@@ -9,6 +9,7 @@ helper_method :sort_column, :sort_direction
         
         @buyers = Buyer.search(search_room, search_bedroom).order(room: :desc)
         
+        
         #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
         # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
     
