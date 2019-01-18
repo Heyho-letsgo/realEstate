@@ -6,6 +6,7 @@
 body {
   padding-top: 60px;
   padding-left: 40px;
+  padding-right: 40px;
 }
 
 section {
@@ -22,5 +23,21 @@ textarea {
 
 .center h1 {
   margin-bottom: 10px;
+}
+
+.div2 {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid green;
+}
+
+.input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #3CBC8D;
+  color: white;
 }
 

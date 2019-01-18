@@ -7,7 +7,7 @@ helper_method :sort_column, :sort_direction
         search_room = params[:room]
         search_bedroom = params[:bedroom]
         
-        @buyers = Buyer.search(search_room, search_bedroom).order(room: :desc)
+        @buyers = Buyer.search(search_room, search_bedroom).order(created_at: :desc)
         
         
         #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
@@ -35,8 +35,9 @@ helper_method :sort_column, :sort_direction
         if @buyer = Buyer.new(buyer_params)
            @buyer.save
            redirect_to "/buyers"
+           flash[:success] = "Buyer created whith succes !"
         else
-            render 'create'
+            render 'new'
         end
     end
    

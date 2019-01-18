@@ -1,15 +1,15 @@
 <h2>Buyers</h2>
 
-<%= link_to "Create a buyer.", new_buyer_path  %>
-
-
+<a class="btn btn-primary" <%=link_to"Welcome", root_path %> </a>
+<a class="btn btn-primary" <%=link_to"Create a buyer",new_buyer_path %> </a>
+<div class="div2" >
 <% # Module de recherche des buyer %>
 <%= form_tag(buyers_path, method: :get) do %>
   <%= text_field_tag :room, params[:room]%>
   <%= text_field_tag :bedroom, params[:bedroom]%>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
-
+</div>
 <% # On affiche les buyers %>
 
 <table class="table">
@@ -26,9 +26,10 @@
   <td><%= link_to buyer.id, buyer_path(buyer) %></td>
   <td><%= buyer.room %></td>
   <td><%= buyer.bedroom %></td>
+  <td><%= buyer.created_at %></td>
   <% end %>
   <th scope = "row">
-    
+     
     
 </th>
 </tr>

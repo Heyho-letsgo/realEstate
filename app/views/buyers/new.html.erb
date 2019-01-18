@@ -1,3 +1,9 @@
-<h2>New buyer</2>
+<h2>New buyer</2><br>
+<a class="btn btn-primary" <%=link_to"Buyers List",buyers_path %> </a>
 
 <%= render 'form', buyers: @buyer %>
+
+
+<h6>Attention : Pour faire passer la commande "Save", j'ai du rajouter dans " /realEstate/config/environments/development.rb"  # Un rajout
+  config.web_console.whiny_requests = false</h6>
+<h6><%= link_to 'lien' "https://stackoverflow.com/questions/29417328/how-to-disable-cannot-render-console-from-on-rails" %></h6>

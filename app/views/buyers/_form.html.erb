@@ -1,11 +1,12 @@
 
 
 
-
+<div class="div2">
 <%= form_tag(:action => "create", :method => "post")  do %>
-  <input type="text" name="room" />
-  <p><%= @buyer.errors[:room].first %></p>
-  <input type="text" name="bedroom" />
-  <p><%= @buyer.errors[:bedroom].first %></p>
-  <input type="submit" value="Add buyer" />
+  <label>Room</label>
+  <%= text_field_tag :room, "",class: 'input' %> 
+  <label>Bedroom</label>
+  <%= text_field_tag :bedroom, "", class: 'input' %>
+  <%= submit_tag "Save" %>
 <% end %>
+</div>
