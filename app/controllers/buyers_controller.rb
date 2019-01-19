@@ -13,15 +13,9 @@ helper_method :sort_column, :sort_direction
         #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
         # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
     
-    
-    
-    
     end      
      
-     
-
-       
-
+      
     def show
        @buyer = Buyer.find(params[:id])
       # redirect_to @buyer
@@ -32,11 +26,14 @@ helper_method :sort_column, :sort_direction
     end
  
     def create
-        if @buyer = Buyer.new(buyer_params)
-           @buyer.save
-           redirect_to "/buyers"
-           flash[:success] = "Buyer created whith succes !"
-        else
+        begin
+        @buyer = Buyer.new(buyer_params)           
+        @buyer.save!    #le point d'exclamation renvoie l'erreur au cas où - operation dangereuse avec un points d'exclamation
+        flash[:success] = "Buyer created whith succes !"
+        redirect_to "/buyers"
+        rescue => quelque_probleme
+            puts quelque_probleme.message 
+            flash[:error] = "Buyer creation failed! #{quelque_probleme.message}"
             render 'new'
         end
     end
@@ -65,6 +62,11 @@ helper_method :sort_column, :sort_direction
     def delete
         
     end
+    
+    def seller_buyer
+        @buyers = Buyer.search(params[:seller_id].to_i,'')
+        render :index
+    end
 
     def order
         
@@ -75,10 +77,7 @@ helper_method :sort_column, :sort_direction
 private
 
     def buyer_params
-     params.permit(
-    :room,
-    :bedroom
-  )
+     params.permit(:room,:bedroom)
     end
 end
 

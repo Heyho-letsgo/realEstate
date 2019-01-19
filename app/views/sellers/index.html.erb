@@ -1,7 +1,8 @@
 <h2>Seller</h2>
 <a class="btn btn-primary" <%=link_to"welcome", root_path %> </a>
-<a class="btn btn-primary" <%=link_to"Buyers", buyers_path %> </a>
 <%  @sellers.each do |seller| %>
-<p><%= seller.room %></p>
+    
+    <p><%= seller.room %></p>
+        <%= link_to "buyer", controller: "buyers", action:"seller_buyer", seller_id: seller.room, class: "btn btn-default" %>
 <% end %>
 

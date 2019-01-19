@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :sellers
   resources :buyers
   
+  get 'seller_buyer', action: :seller_buyer, controller: 'buyers'
 
 
 

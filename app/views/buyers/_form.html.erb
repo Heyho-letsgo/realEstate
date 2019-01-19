@@ -2,10 +2,10 @@
 
 
 <div class="div2">
-<%= form_tag(:action => "create", :method => "post")  do %>
-  <label>Room</label>
+<%= form_tag(:action => "create", :controller => "buyers", :method => "post")  do %>
+  <label for="room_">Room</label>
   <%= text_field_tag :room, "",class: 'input' %> 
-  <label>Bedroom</label>
+  <label for="bedroom">Bedroom</label>
   <%= text_field_tag :bedroom, "", class: 'input' %>
   <%= submit_tag "Save" %>
 <% end %>
