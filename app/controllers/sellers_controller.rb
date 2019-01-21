@@ -55,10 +55,13 @@ class SellersController < ApplicationController
       
    end
    
-    def buyer_seller
-        @buyer = Buyer.search(params[:seller_id].to_i,'')
+    def from_buyers_to_sellers
+        @sellers = Seller.search(params[:buyer_id].to_i,'')
         render :index
     end
+        
+        
+    
    
    
    private
