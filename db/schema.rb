@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190115100401) do
+ActiveRecord::Schema.define(version: 20190121102135) do
 
   create_table "buyers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20190115100401) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.integer "room"
+    t.integer  "room"
+    t.integer  "bedroom"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "table_buyers", force: :cascade do |t|

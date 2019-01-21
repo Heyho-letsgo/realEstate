@@ -1,8 +1,38 @@
-<h2>Seller</h2>
+<h2>Sellers</h2>
 <a class="btn btn-primary" <%=link_to"welcome", root_path %> </a>
-<%  @sellers.each do |seller| %>
-    
-    <p><%= seller.room %></p>
-        <%= link_to "buyer", controller: "buyers", action:"seller_buyer", seller_id: seller.room, class: "btn btn-default" %>
+<a class="btn btn-primary" <%=link_to"Create a seller",new_seller_path %> </a>    
+<div class="div2" >
+<% # Module de recherche des sellers %>
+<%= form_tag(sellers_path, method: :get) do %>
+  <%= text_field_tag :room, params[:room]%>
+  <%= text_field_tag :bedroom, params[:bedroom]%>
+  <%= submit_tag 'Search', name: nil %>
 <% end %>
+</div>
+<% # On affiche les sellers %>
 
+<table class="table">
+ <thead>
+  <tr>
+      <th scope="col"><%= link_to "#", sellers_path  %> </th>
+      <th scope="col"><%= link_to "Room", sellers_path %>   </th>
+      <th scope="col"><%= link_to "Bedroom", sellers_path %></th>
+  </tr>
+  </thead>
+  <tbody>
+      
+<%  @sellers.each do |seller| %>
+    <tr>
+        <td><%= link_to seller.id, seller_path(seller) %></td>    
+      <td> <%= seller.room %></td>
+      <td> <%= seller.bedroom %></td> 
+      
+      <td><a class="btn btn-primary-versBuyers"<%= link_to "Buyers", controller: "buyers", action:"from_sellers_to_buyers", seller_id: seller.room %></a></td>
+<% end %>
+ <th scope = "row">
+     
+  
+</th>
+</tr>
+</tbody>
+</table>

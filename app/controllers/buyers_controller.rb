@@ -63,7 +63,7 @@ helper_method :sort_column, :sort_direction
         
     end
     
-    def seller_buyer
+    def from_sellers_to_buyers
         @buyers = Buyer.search(params[:seller_id].to_i,'')
         render :index
     end

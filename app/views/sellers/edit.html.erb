@@ -1,0 +1,13 @@
+<h2>Edit : <%= @seller.id  %></h2>
+
+<%= form_tag seller_path(@seller), :method => :patch do %>
+
+<%= text_field_tag :room, @seller.room%>
+
+<%= @seller.errors[:room].present? ? ">0" : "" %>
+
+Bedroom
+<%= text_field_tag :bedroom, @seller.bedroom %>
+<%= submit_tag 'Save Changes' %>
+
+<% end %>

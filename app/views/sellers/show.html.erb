@@ -1,5 +1,12 @@
 <h2>Show Seller</h2>
 
-<%= @seller.room%>
+<a class="btn btn-primary" <%=link_to"Welcome", root_path %> </a>
+<a class="btn btn-primary" <%=link_to"Buyers List",buyers_path %> </a>
 
-<%= @roomBuyer = @seller.room %>
+
+<h2>id: <%= @seller.id %></h2><br>
+<h2>room: <%= @seller.room %></h2><br>
+<h2>bedroom: <%= @seller.bedroom %></h2><br>
+
+
+<a class="btn btn-primary" <%=link_to"Edit Seller",edit_seller_path %> </a>
