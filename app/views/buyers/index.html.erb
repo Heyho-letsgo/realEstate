@@ -1,8 +1,9 @@
 <h2>Buyers</h2>
 
 <a class="btn btn-primary" <%=link_to"Welcome", root_path %> </a>
-<a class="btn btn-primary" <%=link_to"Sellers", sellers_path %> </a>
-<a class="btn btn-primary" <%=link_to"Create a buyer",new_buyer_path %> </a>
+<a class="btn btn-primary-versBuyers" <%=link_to"Buyers list",buyers_path %> </a>
+<a class="btn btn-primary-versBuyers" <%=link_to"Create a buyer",new_buyer_path %> </a>
+<a class="btn btn-primary" <%=link_to"Sellers List", sellers_path %> </a>
 <div class="div2" >
 <% # Module de recherche des buyer %>
 <%= form_tag(buyers_path, method: :get) do %>
@@ -17,8 +18,8 @@
  <thead>
   <tr>
       <th scope="col"><%= link_to "#", buyers_path  %> </th>
-      <th scope="col"><%= link_to "Room", buyers_path %>   </th>
-      <th scope="col"><%= link_to "Bedroom", buyers_path %></th>
+      <th scope="col"><%= sort_link "Room" %>   </th>
+      <th scope="col"><%= sort_link "Bedroom" %></th>
   </tr>
   </thead>
 <tbody>

@@ -1,22 +1,25 @@
 class BuyersController < ApplicationController
-
+helper_method :sort_column, :sort_direction
 
     def index
-        #@buyers = Buyer.all
-        @buyers = Buyer.all
-        search_room = params[:room]
-        search_bedroom = params[:bedroom]
-        
-        @buyers = Buyer.search(search_room, search_bedroom)
+       @buyers = Buyer.all
+       search_room = params[:room]
+       search_bedroom = params[:bedroom]
        
-        
-        
-        #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
-        # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
-    
+       @buyers = Buyer.search(search_room, search_bedroom)
+       #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
+       # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
+        if @buyers.present?
+            flash.discard[:success] = "List of buyers !"
+            
+         end   
+            
+         if @buyers.blank?
+            flash.discard[:error] = "No buyers for your request !"
+         end  
+            
     end      
-     
-      
+    
     def show
        @buyer = Buyer.find(params[:id])
       # redirect_to @buyer
@@ -69,10 +72,9 @@ class BuyersController < ApplicationController
         render :index
     end
 
-    def order
-        
-        Buyer.order(id: :desc)
-        
+    def sort_by
+        @buyers = Buyer.all.order("#{sort_column} #{sort_direction}")
+        render :sort_by
     end
 
 private
@@ -81,9 +83,17 @@ private
      params.permit(:room,:bedroom)
     end
     
-   
-    
-    
+    def sortable_columns
+    ["room", "bedroom"]
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "room"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
     
 end
 

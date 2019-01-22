@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'pages#welcome'
+  resources :products
+ 
 
   resources :sellers
   resources :buyers
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   get 'from_sellers_to_buyers', action: :from_sellers_to_buyers, controller: 'buyers'
   get 'from_buyers_to_sellers', action: :from_buyers_to_sellers, controller: 'sellers'
 
+  get 'sort_by', action: :sort_by, controller: 'buyers'
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
