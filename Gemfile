@@ -54,7 +54,5 @@ group :development do
   gem 'listen', '3.1.5'
 end
 
-group :production do
-  gem 'pg', '0.20.0'
-end
+
 
