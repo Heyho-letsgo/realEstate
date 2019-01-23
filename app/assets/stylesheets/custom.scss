@@ -2,12 +2,17 @@
 @import "bootstrap";
 
 /* universal */
-/*  E8A80C => marron clair, 250CE8 => bleu foncé, 0DFFB8 => vert eau   */
+/* Buyers  E8A80C => marron clair, 250CE8 => bleu foncé, 0DFFB8 => vert eau   */
+/* Sellers B20FA9 => Rose foncé, FF6DF7 => rose plus clair, FF49F5 => rose plus foncé, 42B210 => vert foncé, 82FF49, vert clair */
 .btn-primary-versBuyers {
+  color: #FF49F5;
+  background-color: #82FF49;
+  }
+
+.btn-primary-sellers {
   color: #E8A80C;
   background-color: #8FFF78;
   }
-
 
 body {
   padding-top: 60px;

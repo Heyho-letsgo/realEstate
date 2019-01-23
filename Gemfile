@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 #Mon rajout
 gem 'bootstrap-sass', '3.3.7'
+gem 'irb'
+gem 'bcrypt', '3.1.12'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
