@@ -1,4 +1,4 @@
-<h2>Sellers</h2>
+<h2>Sellers - Result Index</h2>
 <a class="btn btn-primary" <%=link_to"welcome", root_path %> </a>
 
 <a class="btn btn-primary" <%=link_to"Sellers Search", search_path %> </a>    
@@ -11,9 +11,9 @@
 <table class="table">
  <thead>
   <tr>
-      <th scope="col"><%= link_to "#", sellers_path  %> </th>
-      <th scope="col"><%= link_to "Room", sellers_path %>   </th>
-      <th scope="col"><%= link_to "Bedroom", sellers_path %></th>
+      <th scope="col"><%= sort_link "#" %> </th>
+      <th scope="col"><%= sort_link  "Room" %>   </th>
+      <th scope="col"><%= sort_link  "Bedroom" %></th>
   </tr>
   </thead>
   <tbody>

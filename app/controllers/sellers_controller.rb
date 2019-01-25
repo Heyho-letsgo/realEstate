@@ -1,12 +1,9 @@
 class SellersController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
    def index
        @sellers = Seller.all
-        search_room = params[:room]
-        search_bedroom = params[:bedroom]
-        
-        @sellers = Seller.search(search_room, search_bedroom).order(created_at: :desc)
-      
+       @sellers = Seller.order("#{sort_column} #{sort_direction}")    
    end
    
    def show
@@ -58,9 +55,10 @@ class SellersController < ApplicationController
    def search_results
     search_room = params[:room]
     search_bedroom = params[:bedroom]
-    @sellersResults = Seller.all    
-    @sellersResults = Seller.search(search_room, search_bedroom).order(created_at: :desc)
-    render :results_index
+    @sellers = Seller.all    
+    @sellers = Seller.search(search_room, search_bedroom).order(created_at: :desc)
+        render :index
+    @sellers = Seller.order("#{sort_column} #{sort_direction}")
    end
    
     def from_buyers_to_sellers
@@ -77,5 +75,17 @@ class SellersController < ApplicationController
     def seller_params
      params.permit(:room,:bedroom)
     end
+    
+      def sortable_columns
+    ["id","room", "bedroom"]
+    end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "room"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
 end
