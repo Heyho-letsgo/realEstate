@@ -10,10 +10,12 @@
 </head>
 <body>
 <% flash.each do |key, value| %>
-    <div class="<%= flash_class(key) %>">
-      <%= value %>
-    </div>
+    <div class="<%= flash_class(key) %>"><%= value %></div>
   <% end %>
+
+
+  <%= render 'layouts/nav' %>
+
 <%= yield %>
 <%= debug(params) if Rails.env.development? %>
 

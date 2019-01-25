@@ -18,7 +18,7 @@
   </thead>
   <tbody>
       
-<%  @sellersResults.each do |seller| %>
+<%  @sellers.each do |seller| %>
     <tr>
         <td><%= link_to seller.id, seller_path(seller) %></td>    
       <td> <%= seller.room %></td>
@@ -31,5 +31,6 @@
   
 </th>
 </tr>
+<%= paginate @sellers %>
 </tbody>
 </table>

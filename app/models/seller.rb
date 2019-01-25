@@ -1,6 +1,6 @@
 class Seller < ActiveRecord::Base
   #kaminari
-  paginates_per 5
+  paginates_per 3
   #-----
   validates :room, presence: true, length: { maximum: 2 }, :numericality => { greater_than: 0 }
   validates :bedroom, presence: true, length: { maximum: 2 }, :numericality => { greater_than: 0 }
