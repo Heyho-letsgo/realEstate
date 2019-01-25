@@ -51,8 +51,16 @@ class SellersController < ApplicationController
    def delete
    end
 
-   def search
-      
+    def search_sellers
+        render :search
+    end
+
+   def search_results
+    search_room = params[:room]
+    search_bedroom = params[:bedroom]
+    @sellersResults = Seller.all    
+    @sellersResults = Seller.search(search_room, search_bedroom).order(created_at: :desc)
+    render :results_index
    end
    
     def from_buyers_to_sellers

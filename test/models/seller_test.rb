@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SellerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+  @seller = Seller.new(room: 3, bedroom: 2)   
+  end
 end

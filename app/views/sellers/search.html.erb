@@ -1,0 +1,11 @@
+<h2>Search Sellers</h2>
+
+<div class="div2">
+<%= form_tag(:action => "search_results", :controller => "sellers", :method => "get")  do %>
+  <label for="room_">Room</label>
+  <%= text_field_tag :room, "",class: 'input' %> 
+  <label for="bedroom">Bedroom</label>
+  <%= text_field_tag :bedroom, "", class: 'input' %>
+  <%= submit_tag "Find Sellers" %>
+<% end %>
+</div>

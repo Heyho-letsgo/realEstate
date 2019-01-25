@@ -1,5 +1,7 @@
 <h2>Users#index</h2>
-
-<% @users.each do |user| %>
-<%= user.name %> <%= user.email%>
-<% end %>
+    <a class="btn btn-primary" <%=link_to"Welcome", root_path %> </a>
+    <div>
+        <% @users.each do |user| %>
+        <%= user.name %> <%= user.email%>
+        <% end %>
+    </div>

@@ -1,12 +1,16 @@
 <h2>Sellers</h2>
 <a class="btn btn-primary" <%=link_to"welcome", root_path %> </a>
-<a class="btn btn-primary" <%=link_to"Sellers Search", search_path %> </a>
-    
+<a class="btn btn-primary-versBuyers" <%=link_to"Buyers List",buyers_path %> </a>
+     
 <a class="btn btn-primary" <%=link_to"Create a seller",new_seller_path %> </a>    
-<a class="btn btn-primary-versBuyers" <%=link_to"Buyers List",buyers_path %> </a>    
-
 <div class="div2" >
-
+<% # Module de recherche des sellers %>
+<%= form_tag(sellers_path, method: :get) do %>
+  <%= text_field_tag :room, params[:room]%>
+  <%= text_field_tag :bedroom, params[:bedroom]%>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+</div>
 <% # On affiche les sellers %>
 
 <table class="table">

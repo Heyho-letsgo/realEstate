@@ -7,6 +7,9 @@ Rails.application.routes.draw do
  
 
   resources :sellers
+  get 'search', action: :search, controller: 'sellers'
+  post 'search_results', action: :search_results , controller: 'sellers'
+  
   resources :buyers
   
   get 'from_sellers_to_buyers', action: :from_sellers_to_buyers, controller: 'buyers'
