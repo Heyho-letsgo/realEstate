@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'irb'
 gem 'bcrypt', '3.1.12'
+gem 'kaminari'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,7 +43,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'sqlite3'
 end
 
 group :development do

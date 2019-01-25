@@ -3,7 +3,8 @@ class SellersController < ApplicationController
 
    def index
        @sellers = Seller.all
-       @sellers = Seller.order("#{sort_column} #{sort_direction}")    
+       @sellers = Seller.order("#{sort_column} #{sort_direction}").page params[:page]
+       
    end
    
    def show

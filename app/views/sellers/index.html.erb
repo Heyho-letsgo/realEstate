@@ -5,6 +5,8 @@
 <a class="btn btn-primary" <%=link_to"Create a seller",new_seller_path %> </a>    
 <a class="btn btn-primary-versBuyers" <%=link_to"Buyers List",buyers_path %> </a>    
 
+
+
 <div class="div2" >
 
 <% # On affiche les sellers %>
@@ -26,11 +28,15 @@
       <td> <%= seller.bedroom %></td> 
       
       <td><a class="btn btn-primary-versBuyers"<%= link_to "Buyers", controller: "buyers", action:"from_sellers_to_buyers", seller_id: seller.room %></a></td>
+ 
 <% end %>
+
  <th scope = "row">
-     
+   
   
 </th>
 </tr>
+<%= paginate @sellers %>
 </tbody>
 </table>
+  
