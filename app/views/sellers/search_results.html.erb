@@ -1,0 +1,49 @@
+<% provide(:title, "index") %>
+<h2>Sellers</h2>
+<a class="btn btn-primary" <%=link_to"welcome", root_path %> </a>
+<a class="btn btn-primary" <%=link_to"Sellers Search", search_path %> </a>
+    
+<a class="btn btn-primary" <%=link_to"Create a seller",new_seller_path %> </a>    
+<a class="btn btn-primary-versBuyers" <%=link_to"Buyers List",buyers_path %> </a>    
+
+
+
+<div class="div2" >
+
+<% # On affiche les sellers %>
+
+<table class="table">
+ <thead>
+  <tr>
+    <% if @room.blank? %>
+      <th scope="col"><%= sort_link "#"  %> </th>
+      <th scope="col"><%= sort_link "room", nil, nil %>   </th>
+      <th scope="col"><%= sort_link "bedroom", nil, nil %></th>
+    <% else  %>
+      <th scope="col"><%= sort_link "#", "#", @room %> </th>
+      <th scope="col"><%= sort_link "bedroom", "room", @room %></th>
+      <th scope="col"><%= sort_link "room", "bedroom", @room %></th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+      
+<%  @sellers.each do |seller| %>
+    <tr>
+        <td><%= link_to seller.id, seller_path(seller) %></td>    
+      <td> <%= seller.room %></td>
+      <td> <%= seller.bedroom %></td> 
+      
+      <td><a class="btn btn-primary-versBuyers"<%= link_to "Buyers", controller: "buyers", action:"from_sellers_to_buyers", seller_id: seller.room %></a></td>
+ 
+<% end %>
+
+ <th scope = "row">
+   
+  
+</th>
+</tr>
+<%= paginate @sellers %>
+</tbody>
+</table>
+  
