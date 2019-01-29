@@ -51,14 +51,14 @@ class SellersController < ApplicationController
   def search_results
     search_room = params[:room]
     search_bedroom = params[:bedroom]
-    @sellers = Seller.all
-    @sellers = Seller.search(search_room, search_bedroom).order(created_at: :desc).page params[:page]
-    render :results_index
-    @sellers = Seller.order("#{sort_column} #{sort_direction}")
+
+    @sellers = Seller.search(search_room, search_bedroom).order("#{sort_column} #{sort_direction}").page params[:page]
+    @room = search_room
+    render :search_results
   end
   def from_buyers_to_sellers
     @sellers = Seller.search(params[:buyer_id].to_i,'').page params[:page]
-    render :index
+    render :search_results
   end
 
   private
