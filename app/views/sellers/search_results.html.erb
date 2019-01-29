@@ -15,7 +15,7 @@
 <table class="table">
  <thead>
   <tr>
-    <% if @room.blank? %>
+    <% if @room.blank? && @bedroom.blank? %>
       <th scope="col"><%= sort_link "#"  %> </th>
       <th scope="col"><%= sort_link "room", nil, nil %>   </th>
       <th scope="col"><%= sort_link "bedroom", nil, nil %></th>
