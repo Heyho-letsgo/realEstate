@@ -1,10 +1,9 @@
 <% provide(:title, "index") %>
 <h2>Sellers</h2>
-<a class="btn btn-primary" <%=link_to"welcome", root_path %> </a>
-<a class="btn btn-primary" <%=link_to"Sellers Search", search_path %> </a>
-    
-<a class="btn btn-primary" <%=link_to"Create a seller",new_seller_path %> </a>    
-<a class="btn btn-primary-versBuyers" <%=link_to"Buyers List",buyers_path %> </a>    
+<%=link_to"welcome", root_path, class:"btn btn-primary" %>
+<%=link_to"Sellers Search", search_path, class:"btn btn-primary" %>
+<%=link_to"Create a seller",new_seller_path , class:"btn btn-primary" %>
+<%=link_to"Buyers List",buyers_path ,class:"btn btn-primary-versBuyers" %>
 
 
 
@@ -27,23 +26,17 @@
   </tr>
   </thead>
   <tbody>
-      
 <%  @sellers.each do |seller| %>
     <tr>
-        <td><%= link_to seller.id, seller_path(seller) %></td>    
+      <td><%= link_to seller.id, seller_path(seller) %></td>    
       <td> <%= seller.room %></td>
       <td> <%= seller.bedroom %></td> 
-      
-      <td><a class="btn btn-primary-versBuyers"<%= link_to "Buyers", controller: "buyers", action:"from_sellers_to_buyers", seller_id: seller.room %></a></td>
- 
+      <td><%= link_to "Buyers", controller: "buyers", action:"from_sellers_to_buyers", seller_id: seller.room, class:"btn btn-primary-versBuyers" %></td>
 <% end %>
 
  <th scope = "row">
-   
-  
 </th>
 </tr>
 <%= paginate @sellers %>
 </tbody>
 </table>
-  
