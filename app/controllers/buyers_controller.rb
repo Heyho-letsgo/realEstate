@@ -2,23 +2,20 @@ class BuyersController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @buyers = Buyer.all
     search_room = params[:room]
     search_bedroom = params[:bedroom]
-
-    @buyers = Buyer.search(search_room, search_bedroom)
+    column = params[:column]
+    direction = params[:direction]
+    @buyers = Buyer.search(search_room, search_bedroom).order("#{column} #{direction}").page(params[:page])
     #https://stackoverflow.com/questions/44504983/search-multiple-fields-with-multiple-values
     # https://rubyplus.com/articles/3381-Simple-Search-Form-in-Rails-5
     if @buyers.present?
       flash.discard[:success] = "List of buyers !"
-
-    end   
-
+    end
     if @buyers.blank?
       flash.discard[:error] = "No buyers for your request !"
-    end  
-
-  end      
+    end
+  end
 
   def show
     @buyer = Buyer.find(params[:id])

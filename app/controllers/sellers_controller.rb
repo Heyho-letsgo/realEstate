@@ -2,7 +2,11 @@ class SellersController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @sellers = Seller.all.order("#{sort_column} #{sort_direction}").page params[:page]
+    search_room = params[:room]
+    search_bedroom = params[:bedroom]
+    column = params[:column]
+    direction = params[:direction]
+    @sellers = Seller.search(search_room, search_bedroom).order("#{column} #{direction}").page params[:page]
   end
 
   def show
