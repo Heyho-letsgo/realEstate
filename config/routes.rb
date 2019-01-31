@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :sellers
   get 'search', action: :search, controller: 'sellers'
+  get 'search_results', action: :search_results, controller: 'sellers'
   post 'search_results', action: :search_results , controller: 'sellers'
   
   resources :buyers
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get 'from_buyers_to_sellers', action: :from_buyers_to_sellers, controller: 'sellers'
 
   get 'sort_by', action: :sort_by, controller: 'buyers'
+
   
 
 

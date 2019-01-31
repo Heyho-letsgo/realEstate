@@ -1,7 +1,9 @@
 class Buyer < ActiveRecord::Base
-  
+  paginates_per 3
+
   validates :room, presence: true, length: { maximum: 2 }, :numericality => { greater_than: 0 }
   validates :bedroom, presence: true, length: { maximum: 2 }, :numericality => { greater_than: 0 }
+
 
   def self.search(search_room,search_bedroom)
     if search_room.present? && search_bedroom.present?
@@ -15,6 +17,5 @@ class Buyer < ActiveRecord::Base
     end
     return Buyer.all
   end
-  
 end
 

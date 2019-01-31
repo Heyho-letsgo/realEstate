@@ -15,7 +15,7 @@
 <table class="table">
  <thead>
   <tr>
-      <th scope="col"><%= sort_link "#"  %> </th>
+      <th scope="col"><%= link_to "#" , sellers_path %> </th>
       <th scope="col"><%= sort_link "room" %>   </th>
       <th scope="col"><%= sort_link "bedroom" %></th>
   </tr>
@@ -24,7 +24,7 @@
       
 <%  @sellers.each do |seller| %>
     <tr>
-        <td><%= link_to seller.id, seller_path(seller) %></td>    
+      <td><%= link_to seller.id, seller_path(seller) %></td>    
       <td> <%= seller.room %></td>
       <td> <%= seller.bedroom %></td> 
       
@@ -40,4 +40,3 @@
 <%= paginate @sellers %>
 </tbody>
 </table>
-  

@@ -2,15 +2,12 @@
 <%= @buyers.length %>
 <% end %>Buyers</h2>
 
+<%=link_to"Welcome", root_path, class:"btn btn-primary"  %> </a>
+<%=link_to"Buyers list",buyers_path, class:"btn btn-primary-versBuyers" %>
+<%=link_to"Create a buyer",new_buyer_path, class:"btn btn-primary-versBuyers" %>
+<%=link_to"Sellers List", sellers_path, class:"btn btn-primary" %>
 
-
-
-<a class="btn btn-primary" <%=link_to"Welcome", root_path %> </a>
-<a class="btn btn-primary-versBuyers" <%=link_to"Buyers list",buyers_path %> </a>
-<a class="btn btn-primary-versBuyers" <%=link_to"Create a buyer",new_buyer_path %> </a>
-<a class="btn btn-primary" <%=link_to"Sellers List", sellers_path %> </a>
 <div class="div2" >
-<% # Module de recherche des buyer %>
 <%= form_tag(buyers_path, method: :get) do %>
   <%= text_field_tag :room, params[:room]%>
   <%= text_field_tag :bedroom, params[:bedroom]%>
@@ -34,13 +31,11 @@
   <td><%= buyer.room %></td>
   <td><%= buyer.bedroom %></td>
   <td><%= buyer.created_at %></td>
-   <td><a class="btn btn-primary"<%= link_to "Sellers", controller: "sellers", action:"from_buyers_to_sellers", buyer_id: buyer.room  %></a></td>
+  <td><%= link_to "Sellers", controller: "sellers", action:"from_buyers_to_sellers", buyer_id: buyer.room , class:"btn btn-primary" %></td>
   <% end %>
-  <th scope = "row">
-     
-    
-</th>
+  <th scope = "row"></th>
 </tr>
+<%= paginate @buyers %>
 </tbody>
 </table>
 
