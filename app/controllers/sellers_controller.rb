@@ -55,10 +55,11 @@ class SellersController < ApplicationController
   def search_results
     search_room = params[:room]
     search_bedroom = params[:bedroom]
-
-    @sellers = Seller.search(search_room, search_bedroom).order("#{sort_column} #{sort_direction}").page params[:page]
+    column = params.fetch(:column, "room")
+    direction = params.fetch(:direction, "asc")
+    @sellers = Seller.search(search_room, search_bedroom).order("#{column} #{direction}").page params[:page]
     @room = search_room
-    @bedroom = search_room
+    @bedroom = search_bedroom
     render :search_results
   end
 

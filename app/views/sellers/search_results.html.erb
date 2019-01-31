@@ -13,17 +13,11 @@
 
 <table class="table">
  <thead>
-  <tr>
-    <% if @room.blank? && @bedroom.blank? %>
-      <th scope="col"><%= sort_link "#"  %> </th>
-      <th scope="col"><%= sort_link "room", nil, nil %>   </th>
-      <th scope="col"><%= sort_link "bedroom", nil, nil %></th>
-    <% else  %>
-      <th scope="col"><%= sort_link "#", "#", @room %> </th>
-      <th scope="col"><%= sort_link "bedroom", "room", @room %></th>
-      <th scope="col"><%= sort_link "room", "bedroom", @room %></th>
-    <% end %>
-  </tr>
+   <tr>
+     <th scope="col"><%= link_to "#", sellers_path %></th>
+     <th scope="col"><%= sort_link "room", {room: @room, bedroom:@bedroom} %></th>
+     <th scope="col"><%= sort_link "bedroom", {room: @room, bedroom:@bedroom} %></th>
+   </tr>
   </thead>
   <tbody>
 <%  @sellers.each do |seller| %>
