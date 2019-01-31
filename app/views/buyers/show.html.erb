@@ -1,7 +1,7 @@
 <h2>Show Buyer</h2>
 
-<a class="btn btn-primary" <%=link_to"Welcome", root_path %> </a>
-<a class="btn btn-primary" <%=link_to"Buyers List",buyers_path %> </a>
+<%=link_to"Welcome", root_path, class:"btn btn-primary" %>
+<%=link_to"Buyers List",buyers_path, class:"btn btn-primary" %>
 
 
 <h2>id: <%= @buyer.id %></h2><br>
@@ -9,4 +9,4 @@
 <h2>bedroom: <%= @buyer.bedroom %></h2><br>
 
 
-<a class="btn btn-primary" <%=link_to"Edit Buyer",edit_buyer_path %> </a>
+<%=link_to "Edit Buyer",edit_buyer_path, class:"btn btn-primary" %>

@@ -1,13 +1,9 @@
-
-    
-    
-    <div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h2>Welcome</h2>
-    <a class="btn btn-primary" <%=link_to"Sellers list", sellers_path %> </a>
-    <a class="btn btn-primary" <%=link_to"Sellers Search", search_path %> </a>
-    
-    <a class="btn btn-primary-versBuyers" <%=link_to"Buyers list", buyers_path %> </a>
-    <a class="btn btn-primary" <%=link_to"Users List", users_path %> </a>
+    <%=link_to"Sellers list", sellers_path, class:"btn btn-primary" %>
+    <%=link_to"Sellers Search", search_path, class:"btn btn-primary" %>
+    <%=link_to"Buyers list", buyers_path, class:"btn btn-primary-versBuyers" %>
+    <%=link_to"Users List", users_path, class:"btn btn-primary" %>
   </div>
 </div>
